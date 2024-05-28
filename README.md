@@ -24,6 +24,10 @@ to see if they pass.
 
 # Limitations
 
+- If a test imports classes that don't exist yet, those classes need to
+be generated first before being able to run that test. As a consequence,
+if two classes depend on each other (including their tests), then the
+code can't be generated without temporarily modifying the test files. 
 - You may need to refresh the file explorer panel of your editor/IDE
 to detect the newly generated files (not really a limitation of this 
 program, but good to know).
