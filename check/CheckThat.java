@@ -71,7 +71,7 @@ public class CheckThat {
     }
 
     public static String withParent(String parent) {
-        return "extends " + parent;
+        return "extends " + new Variable(parent).type;
     }
 
     public CheckThat withTypeParameter(String typeParameter) {
