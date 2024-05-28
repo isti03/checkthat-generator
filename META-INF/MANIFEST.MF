@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Launcher-Agent-Class: check.TestInstrumenter
+Premain-Class: check.TestInstrumenter
+Rsrc-Class-Path: libs/javassist-3.29.2-GA.jar
+Class-Path: .
