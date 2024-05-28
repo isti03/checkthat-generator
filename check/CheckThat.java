@@ -694,6 +694,7 @@ public class CheckThat {
     }
 
     public CheckThat thatIsInheritedFrom(String parent) {
+        ((Method) inspectedMember).annotations = "@Override";
         return this;
     }
 
