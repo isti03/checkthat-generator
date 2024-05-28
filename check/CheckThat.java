@@ -345,6 +345,12 @@ public class CheckThat {
         return thatReturns("void");
     }
 
+    public CheckThat thatCanRaise(String... exceptions) {
+        ((Method) inspectedMember).exceptions = " throws " + String.join(", ", map(exceptions, e -> new Variable(e).type));
+        return this;
+    }
+
+
     public CheckThat has(Condition... conditions) {
         inspectedMember = null;
         for (Condition condition : conditions) {
@@ -529,6 +535,7 @@ public class CheckThat {
         public String returnType;
         public String name;
         public String parameters;
+        public String exceptions; // "throws ..."
         public String body;
 
         public Method(String name, String parameters) {
@@ -563,6 +570,10 @@ public class CheckThat {
                 sb.append(returnType).append(" ");
             }
             sb.append(name).append("(").append(parameters).append(")");
+
+            if (exceptions != null) {
+                sb.append(exceptions);
+            }
 
             if (modifiers.abstractness != null) {
                 return sb.append(";").toString();
