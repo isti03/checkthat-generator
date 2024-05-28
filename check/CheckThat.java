@@ -350,6 +350,12 @@ public class CheckThat {
         return this;
     }
 
+    public CheckThat implementsMethod(String method) {
+        Method result = new Method(method, "", "// TODO: correct signature");
+        result.annotations = "@Override";
+        classMethods.add(result);
+        return this;
+    }
 
     public CheckThat has(Condition... conditions) {
         inspectedMember = null;
